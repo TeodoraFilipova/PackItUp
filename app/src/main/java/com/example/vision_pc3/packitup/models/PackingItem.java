@@ -1,4 +1,4 @@
-package com.example.vision_pc3.packitup;
+package com.example.vision_pc3.packitup.models;
 
 public class PackingItem {
     public String name;

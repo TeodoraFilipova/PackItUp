@@ -1,7 +1,9 @@
-package com.example.vision_pc3.packitup;
+package com.example.vision_pc3.packitup.ItemList;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.vision_pc3.packitup.R;
 
 public class MainListActivity extends AppCompatActivity {
 
