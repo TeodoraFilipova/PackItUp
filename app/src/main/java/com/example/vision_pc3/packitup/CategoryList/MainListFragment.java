@@ -50,6 +50,10 @@ public class MainListFragment extends Fragment implements AdapterView.OnItemClic
         mCategoriesListView.setAdapter(mCategoriesAdapter);
         mCategoriesListView.setOnItemClickListener(this);
 
+
+        mDb.collection("packingitems")
+                .add(new PackingItem("hairbrush", "Other"));
+
         mDb.collection("packingitems")
                 .get()
                 .addOnCompleteListener(task -> {

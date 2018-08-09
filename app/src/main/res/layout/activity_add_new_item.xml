@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoryList.MainListActivity">
+    tools:context=".AddNewItem.AddNewItemActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,11 +15,13 @@
             android:layout_width="match_parent"
             android:layout_height="40dp" />
 
-        <FrameLayout
-            android:id="@+id/content"
+        <TextView
+            android:id="@+id/tv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:text="Add new item"
             android:layout_below="@+id/drawer_toolbar"/>
 
     </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
