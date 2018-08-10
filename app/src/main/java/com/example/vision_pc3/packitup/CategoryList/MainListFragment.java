@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.vision_pc3.packitup.base.FirebaseRepository;
 import com.example.vision_pc3.packitup.models.PackingItem;
 import com.example.vision_pc3.packitup.R;
 import com.example.vision_pc3.packitup.utilities.Navigator;
@@ -28,11 +29,10 @@ import java.util.Set;
  * A simple {@link Fragment} subclass.
  */
 public class MainListFragment extends Fragment implements AdapterView.OnItemClickListener {
-
-    private FirebaseFirestore mDb;
     private ListView mCategoriesListView;
     private ArrayAdapter<String> mCategoriesAdapter;
     private Navigator mNavigator;
+    private FirebaseRepository<PackingItem> mPackingItemsRepository;
 
     public MainListFragment() {
         // Required empty public constructor
@@ -43,27 +43,20 @@ public class MainListFragment extends Fragment implements AdapterView.OnItemClic
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_list, container, false);
 
-        mDb = FirebaseFirestore.getInstance();
+        mPackingItemsRepository = new FirebaseRepository<>(PackingItem.class);
 
         mCategoriesListView = view.findViewById(R.id.lv_items);
         mCategoriesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1);
         mCategoriesListView.setAdapter(mCategoriesAdapter);
         mCategoriesListView.setOnItemClickListener(this);
 
-
-        mDb.collection("packingitems")
-                .add(new PackingItem("hairbrush", "Other"));
-
-        mDb.collection("packingitems")
-                .get()
-                .addOnCompleteListener(task -> {
-                    List<PackingItem> packingItems = task.getResult().toObjects(PackingItem.class);
-                    Set<String> categories = new HashSet<>();
-                    for (PackingItem item : packingItems) {
-                        categories.add(item.getCategory());
-                    }
-                    mCategoriesAdapter.addAll(categories);
-                });
+        mPackingItemsRepository.getAll(packingItems -> {
+            Set<String> categories = new HashSet<>();
+            for (PackingItem item : packingItems) {
+                categories.add(item.getCategory());
+            }
+            mCategoriesAdapter.addAll(categories);
+        });
 
         return view;
     }
