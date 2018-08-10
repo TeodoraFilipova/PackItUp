@@ -3,9 +3,7 @@ package com.example.vision_pc3.packitup.base;
 import com.example.vision_pc3.packitup.models.PackingItem;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Consumer;
 
 public class FirebaseRepository<T> implements Repository<T> {
@@ -24,8 +22,8 @@ public class FirebaseRepository<T> implements Repository<T> {
         mDb.collection(mCollectionName)
                 .get()
                 .addOnCompleteListener(task -> {
-                    List<T> items = task.getResult().toObjects(mKlass);
-                    action.accept(items);
+                    List<T> list = task.getResult().toObjects(mKlass);
+                    action.accept(list);
                 });
     }
 

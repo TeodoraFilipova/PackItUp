@@ -1,5 +1,7 @@
 package com.example.vision_pc3.packitup.base;
 
+import com.example.vision_pc3.packitup.models.PackingItem;
+
 import java.util.List;
 import java.util.function.Consumer;
 

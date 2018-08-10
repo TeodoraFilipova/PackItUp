@@ -18,6 +18,7 @@ import com.example.vision_pc3.packitup.base.FirebaseRepository;
 import com.example.vision_pc3.packitup.models.PackingItem;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,6 +27,9 @@ import java.util.Set;
  * A simple {@link Fragment} subclass.
  */
 public class AddNewItemFragment extends Fragment {
+    static List<String> categoriesToDisplay = new ArrayList<>();
+    static Set<String> categories = new HashSet<>();
+
     private TextView mTitleTextView;
     private TextView mItemNameTextView;
     private TextView mCategoryNameTextView;
@@ -54,12 +58,13 @@ public class AddNewItemFragment extends Fragment {
 
         mPackingItemsRepository = new FirebaseRepository<>(PackingItem.class);
 
-        mPackingItemsRepository.getAll(packingItems -> {
-            Set<String> categories = new HashSet<>();
-            for (PackingItem item : packingItems) {
+
+        mPackingItemsRepository.getAll(items -> {
+            for (PackingItem item : items) {
                 categories.add(item.getCategory());
             }
-            mSpinnerAdapter.addAll(categories);
+            categoriesToDisplay.addAll(categories);
+            mSpinnerAdapter.addAll(categoriesToDisplay);
         });
 
         mEnterNameEditTextView = view.findViewById(R.id.name_enter);
@@ -70,10 +75,10 @@ public class AddNewItemFragment extends Fragment {
             String itemCategory = mCategorySpinner.getSelectedItem().toString();
             mPackingItemsRepository.add
                     (new PackingItem(itemName, itemCategory),
-                    packingItem ->
-                    Toast.makeText(getContext(),
-                            itemName + " added to " + itemCategory + " category!",
-                            Toast.LENGTH_LONG).show());
+                            packingItem ->
+                                    Toast.makeText(getContext(),
+                                            itemName + " added to " + itemCategory + " category!",
+                                            Toast.LENGTH_LONG).show());
         });
 
         return view;

@@ -14,21 +14,27 @@ import android.widget.TextView;
 import com.example.vision_pc3.packitup.R;
 import com.example.vision_pc3.packitup.base.FirebaseRepository;
 import com.example.vision_pc3.packitup.models.PackingItem;
+import com.example.vision_pc3.packitup.utilities.CustomAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ItemListFragment extends Fragment {
+    static List<String> itemsToDisplay = new ArrayList<>();
+
     private TextView mItemsTextView;
     private String mItemsCategory;
     private ListView mItemsListView;
-    private ArrayAdapter<String> mItemsAdapter;
+    private CustomAdapter mItemsAdapter;
     private FirebaseRepository<PackingItem> mPackingItemsRepository;
 
     public ItemListFragment() {
@@ -47,16 +53,19 @@ public class ItemListFragment extends Fragment {
         mItemsTextView.setText(mItemsCategory);
 
         mItemsListView = view.findViewById(R.id.lv_items);
-        mItemsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1);
-        mItemsListView.setAdapter(mItemsAdapter);
+        mItemsAdapter = new CustomAdapter(getContext(), -1);
 
-        mPackingItemsRepository.getAll(packingItems -> {
-            for (PackingItem item : packingItems) {
+        mPackingItemsRepository.getAll(items -> {
+            for (PackingItem item : items) {
                 if (item.getCategory().equals(mItemsCategory)) {
-                    mItemsAdapter.add(item.getName());
+                    itemsToDisplay.add(item.getName());
                 }
             }
+            mItemsAdapter.addAll(itemsToDisplay);
         });
+
+
+        mItemsListView.setAdapter(mItemsAdapter);
 
         return view;
     }
