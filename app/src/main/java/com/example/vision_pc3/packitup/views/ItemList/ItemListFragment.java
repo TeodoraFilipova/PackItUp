@@ -1,29 +1,21 @@
-package com.example.vision_pc3.packitup.ItemList;
+package com.example.vision_pc3.packitup.views.ItemList;
 
 
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.vision_pc3.packitup.R;
-import com.example.vision_pc3.packitup.base.FirebaseRepository;
+import com.example.vision_pc3.packitup.repositories.base.FirebaseRepository;
 import com.example.vision_pc3.packitup.models.PackingItem;
 import com.example.vision_pc3.packitup.utilities.CustomAdapter;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * A simple {@link Fragment} subclass.

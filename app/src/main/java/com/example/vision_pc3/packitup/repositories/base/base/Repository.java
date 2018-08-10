@@ -1,6 +1,4 @@
-package com.example.vision_pc3.packitup.base;
-
-import com.example.vision_pc3.packitup.models.PackingItem;
+package com.example.vision_pc3.packitup.repositories.base.base;
 
 import java.util.List;
 import java.util.function.Consumer;

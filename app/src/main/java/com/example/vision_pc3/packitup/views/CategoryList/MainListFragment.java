@@ -1,4 +1,4 @@
-package com.example.vision_pc3.packitup.CategoryList;
+package com.example.vision_pc3.packitup.views.CategoryList;
 
 
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.vision_pc3.packitup.base.FirebaseRepository;
+import com.example.vision_pc3.packitup.repositories.base.FirebaseRepository;
 import com.example.vision_pc3.packitup.models.PackingItem;
 import com.example.vision_pc3.packitup.R;
 import com.example.vision_pc3.packitup.utilities.CustomAdapter;
@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.function.Consumer;
 
 /**
  * A simple {@link Fragment} subclass.

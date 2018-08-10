@@ -1,6 +1,6 @@
-package com.example.vision_pc3.packitup.base;
+package com.example.vision_pc3.packitup.repositories.base;
 
-import com.example.vision_pc3.packitup.models.PackingItem;
+import com.example.vision_pc3.packitup.repositories.base.base.Repository;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;

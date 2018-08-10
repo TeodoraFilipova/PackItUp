@@ -1,7 +1,6 @@
-package com.example.vision_pc3.packitup.ItemList;
+package com.example.vision_pc3.packitup.views.ItemList;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 

@@ -1,21 +1,12 @@
-package com.example.vision_pc3.packitup.CategoryList;
+package com.example.vision_pc3.packitup.views.CategoryList;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toolbar;
 
-import com.example.vision_pc3.packitup.ItemList.ItemListActivity;
+import com.example.vision_pc3.packitup.views.ItemList.ItemListActivity;
 import com.example.vision_pc3.packitup.R;
 import com.example.vision_pc3.packitup.utilities.BaseDrawerActivity;
 import com.example.vision_pc3.packitup.utilities.Navigator;
-import com.mikepenz.materialdrawer.Drawer;
-import com.mikepenz.materialdrawer.DrawerBuilder;
-import com.mikepenz.materialdrawer.model.DividerDrawerItem;
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 public class MainListActivity extends BaseDrawerActivity implements Navigator {
 

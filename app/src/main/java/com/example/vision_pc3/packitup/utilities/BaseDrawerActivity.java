@@ -4,23 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.example.vision_pc3.packitup.AddNewItem.AddNewItemActivity;
-import com.example.vision_pc3.packitup.CategoryList.MainListActivity;
-import com.example.vision_pc3.packitup.ItemList.ItemListActivity;
-import com.example.vision_pc3.packitup.models.PackingItem;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.example.vision_pc3.packitup.views.AddNewItem.AddNewItemActivity;
+import com.example.vision_pc3.packitup.views.CategoryList.MainListActivity;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public abstract class BaseDrawerActivity extends AppCompatActivity {
 

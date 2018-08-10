@@ -1,4 +1,4 @@
-package com.example.vision_pc3.packitup.AddNewItem;
+package com.example.vision_pc3.packitup.views.AddNewItem;
 
 
 import android.os.Bundle;
@@ -14,9 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.vision_pc3.packitup.R;
-import com.example.vision_pc3.packitup.base.FirebaseRepository;
+import com.example.vision_pc3.packitup.repositories.base.FirebaseRepository;
 import com.example.vision_pc3.packitup.models.PackingItem;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.HashSet;
