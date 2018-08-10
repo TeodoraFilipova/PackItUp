@@ -1,6 +1,5 @@
 package com.example.vision_pc3.packitup.AddNewItem;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
@@ -11,7 +10,7 @@ import com.example.vision_pc3.packitup.utilities.BaseDrawerActivity;
 public class AddNewItemActivity extends BaseDrawerActivity {
     public static final long ID = 1;
     private Toolbar mToolbar;
-    private TextView mTextView;
+    private AddNewItemFragment mAddNewItemFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +18,13 @@ public class AddNewItemActivity extends BaseDrawerActivity {
         setContentView(R.layout.activity_add_new_item);
 
         mToolbar = findViewById(R.id.drawer_toolbar);
-        mTextView = findViewById(R.id.tv);
+        setSupportActionBar(mToolbar);
+
+        mAddNewItemFragment = AddNewItemFragment.getInstance();
+
+        getFragmentManager().beginTransaction()
+                .replace(R.id.content, mAddNewItemFragment)
+                .commit();
 
         setUpDrawer();
     }

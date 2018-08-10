@@ -15,11 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="40dp" />
 
-        <TextView
-            android:id="@+id/tv"
+        <FrameLayout
+            android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Add new item"
             android:layout_below="@+id/drawer_toolbar"/>
 
     </RelativeLayout>
