@@ -11,6 +11,7 @@
         android:checked="false"
         android:gravity="center_vertical"
         android:paddingStart="15dp"
+        android:focusable="false"
         android:textColor="#000" />
 
 </LinearLayout>

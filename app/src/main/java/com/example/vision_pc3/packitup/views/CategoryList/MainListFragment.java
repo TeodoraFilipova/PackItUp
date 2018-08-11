@@ -23,7 +23,7 @@ import java.util.Set;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MainListFragment extends Fragment implements AdapterView.OnItemLongClickListener {
+public class MainListFragment extends Fragment {
     static List<String> categoriesToDisplay = new ArrayList<>();
     static Set<String> categories = new HashSet<>();
 
@@ -59,7 +59,7 @@ public class MainListFragment extends Fragment implements AdapterView.OnItemLong
         });
 
         mCategoriesListView.setAdapter(mCategoriesAdapter);
-        mCategoriesListView.setOnItemLongClickListener(this);
+//        mCategoriesListView.setOnItemClickListener(this);
 
         return view;
     }
@@ -72,10 +72,9 @@ public class MainListFragment extends Fragment implements AdapterView.OnItemLong
         this.mNavigator = navigator;
     }
 
-    @Override
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-        String category = mCategoriesAdapter.getItem(i);
-        mNavigator.navigateTo(category);
-        return true;
-    }
+//    @Override
+//    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//        String category = mCategoriesAdapter.getItem(i);
+//        mNavigator.navigateTo(category);
+//    }
 }
