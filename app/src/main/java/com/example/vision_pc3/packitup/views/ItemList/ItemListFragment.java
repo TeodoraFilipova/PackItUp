@@ -21,8 +21,6 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class ItemListFragment extends Fragment {
-    static List<String> itemsToDisplay = new ArrayList<>();
-
     private TextView mItemsTextView;
     private String mItemsCategory;
     private ListView mItemsListView;
@@ -50,12 +48,10 @@ public class ItemListFragment extends Fragment {
         mPackingItemsRepository.getAll(items -> {
             for (PackingItem item : items) {
                 if (item.getCategory().equals(mItemsCategory)) {
-                    itemsToDisplay.add(item.getName());
+                    mItemsAdapter.add(item.getName());
                 }
             }
-            mItemsAdapter.addAll(itemsToDisplay);
         });
-
 
         mItemsListView.setAdapter(mItemsAdapter);
 

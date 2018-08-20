@@ -44,9 +44,17 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
         simpleCheckedTextView.setOnClickListener(view1 -> {
             String name = getItem(position);
-            Intent intent = new Intent(getContext(), ItemListActivity.class);
-            intent.putExtra("CATEGORY_NAME", name);
-            getContext().startActivity(intent);
+
+            if (name.equals("Toiletries") ||
+                    name.equals("Clothes") ||
+                    name.equals("Electronics") ||
+                    name.equals("Sportswear") ||
+                    name.equals("Beachwear") ||
+                    name.equals("Other")) {
+                Intent intent = new Intent(getContext(), ItemListActivity.class);
+                intent.putExtra("CATEGORY_NAME", name);
+                getContext().startActivity(intent);
+            }
         });
 
         return view;
